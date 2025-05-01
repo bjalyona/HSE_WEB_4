@@ -11,7 +11,7 @@ interface ArticleInput {
 
 export const findAll = () => {
   return prisma.article.findMany({
-    orderBy: { createdAt: 'desc' },
+    orderBy: { createdAt: 'asc' },
   });
 };
 
@@ -33,8 +33,20 @@ export const create = async (data: ArticleInput, username: string) => {
       title: data.title,
       content: data.content,
       tag: data.tag,
-      likes: 0,               
-      userId: user.id,
+      likesCount: 0,               
+      userId: user.id
     },
   });
 };
+
+export const findByUserID = async (userId: number) => {
+  return prisma.article.findMany({
+    where: { userId }
+  });
+};
+
+export const findByTag = async (tag: string) => {
+  return prisma.article.findMany({
+    where: { tag }
+  })
+}

@@ -44,12 +44,18 @@ export const getArticleById = async (req: Request, res: Response, next: NextFunc
   }
 };
 
-// export const getArticleByTag = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-//   try {
-//     const { tag } = req.params;
-//     const articles = await articleService.getArticlesByTag(tag);
-//     res.json(articles);
-//   } catch (err) {
-//     next(err);
-//   }
-// };
+export const getArticleByUserID = async (req: Request, res : Response) => {
+    const userID = Number(req.params.id)
+    const articles = await articleService.getArticlesByUserId(userID)
+    res.json(articles)
+}
+
+export const getArticleByTag = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const { tag } = req.params;
+    const articles = await articleService.getArticleByTag(tag);
+    res.json(articles);
+  } catch (err) {
+    next(err);
+  }
+};

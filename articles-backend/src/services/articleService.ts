@@ -18,3 +18,11 @@ export const getAllArticles = () => {
 export const getArticleById = (id: number) => {
   return articleRepository.findById(id);
 };
+
+export const getArticlesByUserId = (userId: number) => {
+  return articleRepository.findByUserID(userId);
+};
+
+export const getArticleByTag = (tag: string) => {
+  return articleRepository.findByTag(tag);
+}

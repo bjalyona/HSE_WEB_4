@@ -8,6 +8,14 @@ interface JwtPayload {
   username: string;
 }
 
+declare global {
+  namespace Express {
+    interface Request {
+      user?: JwtPayload;
+    }
+  }
+}
+
 export const authenticate: RequestHandler = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
@@ -18,8 +26,7 @@ export const authenticate: RequestHandler = (req, res, next) => {
   const token = authHeader.split(' ')[1];
   try {
     const decoded = jwt.verify(token, JWT_SECRET) as JwtPayload;
-    (req as Request & { user?: JwtPayload }).user = decoded; 
-
+    req.user = decoded; 
     return next(); 
   } catch (err) {
     res.status(401).json({ error: 'Invalid token' });
