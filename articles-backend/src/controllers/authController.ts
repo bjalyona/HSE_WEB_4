@@ -25,8 +25,13 @@ export const login = async (req: Request, res: Response) => {
 	const { username, password } = req.body
 	try {
 		const result = await authService.login(username, password)
+		res.cookie('token', result.token, {
+			httpOnly: true,
+			secure: false,
+			sameSite: 'strict',
+			maxAge: 7 * 24 * 60 * 60 * 1000,
+		})
 		res.json(result)
-		res.cookie('cookie', result)
 	} catch (err: any) {
 		res.status(401).json({ error: err.message })
 	}
