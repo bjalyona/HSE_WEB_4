@@ -1,28 +1,36 @@
-import * as articleRepository from '../repositories/articleRepository';
+import * as articleRepository from '../repositories/articleRepository'
 
 interface ArticleData {
-  username: string;
-  title: string;
-  content: string;
-  tag: string;   
+	username: string
+	title: string
+	content: string
+	tag: string
 }
 
 export const createArticle = (data: ArticleData, username: string) => {
-  return articleRepository.create(data, username);
-};
+	return articleRepository.create(data, username)
+}
 
 export const getAllArticles = () => {
-  return articleRepository.findAll();
-};
+	return articleRepository.findAll()
+}
 
 export const getArticleById = (id: number) => {
-  return articleRepository.findById(id);
-};
+	return articleRepository.findById(id)
+}
 
 export const getArticlesByUserId = (userId: number) => {
-  return articleRepository.findByUserID(userId);
-};
+	return articleRepository.findByUserID(userId)
+}
 
 export const getArticleByTag = (tag: string) => {
-  return articleRepository.findByTag(tag);
+	return articleRepository.findByTag(tag)
+}
+
+export const deleteArticleById = (id: number) => {
+	return articleRepository.deleteByID(id)
+}
+
+export const updateArticleById = (id: number, data: Partial<ArticleData>) => {
+	return articleRepository.updateByID(id, data)
 }

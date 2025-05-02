@@ -199,6 +199,81 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hb
 }
 ```
 
+#### Update Article
+
+- **URL**: /article/{id}
+
+- **Method**: PUT
+
+- **Description**: Update an existing article by ID.
+
+**URL Parameters**:
+
+- **id** (required): The ID of the article to update.
+
+- **Request Body**:
+
+```json
+{
+	"title": "new title",
+	"content": "new content",
+	"tag": "new tag"
+}
+```
+
+Response: Returns the updated article object.
+
+### Example
+
+**PUT** `http://localhost:4000/api/article/1`
+
+```json
+{
+	"title": "new title",
+	"content": "new content",
+	"tag": "new tag"
+}
+```
+
+**Response**
+
+```json
+{
+	"id": 1,
+	"title": "new title",
+	"content": "new content",
+	"tag": "new tag",
+	"userId": 1,
+	"likesCount": 0,
+	"createdAt": "2025-05-02T11:46:43.941Z",
+	"updatedAt": "2025-05-02T12:00:12.120Z"
+}
+```
+
+#### Delete Article
+
+- **URL**: `/article/{id}`
+
+- **Method**: DELETE
+
+- **Description**: Delete an article by ID.
+
+**URL Parameters**:
+
+- **id** (required): The ID of the article to delete.
+
+- **Response**: Returns a success message upon successful deletion.
+
+### Example
+
+**DELETE** http://localhost:4000/api/article/1
+
+```json
+{
+	"message": "Article deleted successfully"
+}
+```
+
 ### Users
 
 #### Register
@@ -232,6 +307,76 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hb
 ```
 {
     "token": "..."
+}
+```
+
+#### Update User
+
+- **URL**: `/auth/{id}`
+
+- **Method**: PUT
+
+- **Description**: Update an existing user by ID.
+
+**URL Parameters**:
+
+- **id** (required): The ID of the user to update.
+
+- **Request Body**:
+
+```json
+{
+	"username": "upd",
+	"password": "upd"
+}
+```
+
+Response: Returns the updated user object.
+
+### Example
+
+**PUT** `http://localhost:4000/api/auth/1`
+
+```json
+{
+	"username": "upd",
+	"password": "upd"
+}
+```
+
+**Response**
+
+```json
+{
+	"id": 1,
+	"username": "upd",
+	"password": "upd",
+	"createdAt": "2025-05-02T11:46:22.630Z",
+	"updatedAt": "2025-05-02T17:22:49.962Z"
+}
+```
+
+#### Delete User
+
+- **URL**: `/article/{id}`
+
+- **Method**: DELETE
+
+- **Description**: Delete an user by ID.
+
+**URL Parameters**:
+
+- **id** (required): The ID of the user to delete.
+
+- **Response**: Returns a success message upon successful deletion.
+
+### Example
+
+**DELETE** http://localhost:4000/api/auth/1
+
+```json
+{
+	"message": "User deleted successfully"
 }
 ```
 

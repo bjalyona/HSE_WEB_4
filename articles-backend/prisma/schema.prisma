@@ -1,10 +1,7 @@
-// prisma/schema.prisma
-
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "linux-arm64-openssl-3.0.x"]
 }
-
 
 datasource db {
   provider = "postgresql"
@@ -12,31 +9,31 @@ datasource db {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  username  String    @unique
-  password  String
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
 
-  articles  Article[]
-  likes     Like[]
+  articles Article[]
+  likes    Like[]
 
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Article {
-  id        Int       @id @default(autoincrement())
-  title     String
-  content   String
-  tag       String
+  id      Int    @id @default(autoincrement())
+  title   String
+  content String
+  tag     String
 
-  userId  Int
-  user    User    @relation(fields: [userId], references: [id])
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id], onDelete: SetNull)
 
   likesCount Int
   likedBy    Like[]
 
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Like {
@@ -44,8 +41,8 @@ model Like {
   articleId Int
   createdAt DateTime @default(now())
 
-  user   User    @relation(fields: [userId], references: [id])
+  user    User    @relation(fields: [userId], references: [id])
   article Article @relation(fields: [articleId], references: [id])
 
-  @@id([userId, articleId]) 
+  @@id([userId, articleId])
 }
