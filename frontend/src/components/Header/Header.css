@@ -1,0 +1,30 @@
+.header {
+  background: var(--color-primary);
+  height: 50px;
+}
+
+.header-content {
+  height: 100%;
+  margin: auto 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-logo {
+  color: var(--color-white);
+}
+.header-nav {
+  display: flex;
+  gap: 12px;
+  font-size: 20px;
+}
+.header-link {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.header-link-active {
+  text-decoration: none;
+  color: var(--color-white);
+  font-weight: bold;
+}
