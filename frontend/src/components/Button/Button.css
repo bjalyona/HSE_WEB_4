@@ -1,6 +1,6 @@
 button {
   font-size: 16px;
-  font-weight: 700;
+
   padding: 8px 16px;
   border:  1.5px solid var(--color-light-purple);
   border-radius: 10px;

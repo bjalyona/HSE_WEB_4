@@ -1,0 +1,22 @@
+.reading-title{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.reading-author{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.reading-text{
+    margin-top: 20px;
+    text-indent: 30px;
+    line-height: 24px;
+
+}
+
+.like-container {
+    display: flex;
+    justify-content: space-between;
+
+}

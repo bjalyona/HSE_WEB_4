@@ -1,0 +1,19 @@
+.home-title{
+    margin-top: 30px;
+    font-size: 50px;
+}
+
+.home-descr{
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.home-text {
+    margin-top: 20px;
+    font-size: 24px;
+}
+.channel {
+    margin-top: 100px;
+    color: var(--color-primary);
+    font-size: 30px;
+}

@@ -1,0 +1,13 @@
+.register-title {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.register-content{
+    width: 500px;
+    margin: 0 auto;
+}
+
+.register-content a{
+    color: var(--color-primary);
+}

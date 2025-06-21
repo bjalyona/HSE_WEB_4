@@ -10,13 +10,17 @@ export default function Header() {
     navigate("/admin");
   };
 
+  const userId = localStorage.getItem("userId");
+
   return (
     <div className="header">
       <div className="header-content">
         <div className="header-logo">
-          <span>FanficVerse</span>
+          Fanfic<b>Verse</b>
         </div>
-        <Button onClick={handleAdmin}>Перейти в админку</Button>
+        {userId === "1" && (
+          <Button onClick={handleAdmin}>Перейти в админку</Button>
+        )}
         <nav className="header-nav">
           <NavLink
             to="/"
